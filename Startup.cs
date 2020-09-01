@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace MV.Demo.Authentication
+namespace MV.Demo.Basic
 {
     public class Startup
     {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MV.Demo.Authentication
+namespace MV.Demo.Basic
 {
     public class Program
     {

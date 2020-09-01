@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MV.Demo.Authentication.Controllers
+namespace MV.Demo.Basic.Controllers
 {
     public class HomeController : Controller
     {
