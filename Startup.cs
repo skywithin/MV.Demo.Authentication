@@ -14,6 +14,13 @@ namespace MV.Demo.Authentication
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("CookieAuth")
+                    .AddCookie("CookieAuth", config =>
+                    {
+                        config.Cookie.Name = "Grandmas.Cookie";
+                        config.LoginPath = "/Home/Authenticate";
+                    });
+
             services.AddControllersWithViews();
         }
 
@@ -25,6 +32,9 @@ namespace MV.Demo.Authentication
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
