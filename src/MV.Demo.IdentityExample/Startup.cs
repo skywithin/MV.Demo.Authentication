@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,24 @@ namespace MV.Demo.IdentityExample
             {
                 config.UseInMemoryDatabase("InMemoryDB");
             });
+
+            //AddIdentity registers the services
+            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+                    {
+                        config.Password.RequiredLength = 4;
+                        config.Password.RequireDigit = false;
+                        config.Password.RequireNonAlphanumeric = false;
+                        config.Password.RequireUppercase = false;
+
+                    })
+                    .AddEntityFrameworkStores<AppDbContext>()
+                    .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(config =>
+                    {
+                        config.Cookie.Name = "Identity.Cookie";
+                        config.LoginPath = "/Home/Login";
+                    });
 
             //services.AddAuthentication("CookieAuth")
             //        .AddCookie("CookieAuth", config =>
