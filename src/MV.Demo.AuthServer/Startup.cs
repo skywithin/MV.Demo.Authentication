@@ -46,7 +46,8 @@ namespace MV.Demo.AuthServer
 
 
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                    .AddRazorRuntimeCompilation();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

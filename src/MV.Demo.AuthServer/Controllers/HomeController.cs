@@ -47,8 +47,7 @@ namespace MV.Demo.AuthServer.Controllers
             return Ok(new { access_token = tokenJson });
         }
 
-        [HttpGet("decode/{tokenPart}")]
-        public IActionResult DecodeTokenPart(string tokenPart)
+        public IActionResult Decode(string tokenPart)
         {
             var bytes = Convert.FromBase64String(tokenPart);
             var jsonString = Encoding.UTF8.GetString(bytes);
